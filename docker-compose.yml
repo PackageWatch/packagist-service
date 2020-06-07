@@ -1,0 +1,11 @@
+version: '3.7'
+services:
+    app:
+        image: packagewatch/packagist-worker:${image_tag-latest}
+        build:
+            context: .
+            dockerfile: Dockerfile
+            target: ${stage-development}
+        env_file:
+            - .env
+        command: npm start
